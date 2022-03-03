@@ -1,0 +1,21 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: build-java
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'java-image-stream:latest'
+  strategy:
+    type: Source
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        namespace: openshift
+        name: 'java:openjdk-11-el7'
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/jboss-openshift/openshift-quickstarts'
+  runPolicy: Serial

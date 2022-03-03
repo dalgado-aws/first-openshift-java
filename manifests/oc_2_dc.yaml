@@ -1,0 +1,30 @@
+kind: Template
+apiVersion: template.openshift.io/v1
+metadata:
+  name: java-template
+objects:
+- kind: Deployment
+  apiVersion: apps/v1
+  metadata:
+    name: deploy-java
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        deployment: java-app
+    template:
+      metadata:
+        labels:
+          deployment: java-app
+      spec:
+        containers:
+          - name: java-container-1
+            image: image-registry.openshift-image-registry.svc:5000/${OPENSHIFT_NAMESPACE}/java-image-stream:latest
+            env:
+              - name: JAVA_MAIN_CLASS
+                value: com.simple.Main
+        restartPolicy: Always
+parameters:
+  - description: namepace
+    generate: expression
+    name: OPENSHIFT_NAMESPACE
