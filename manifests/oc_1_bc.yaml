@@ -14,8 +14,3 @@ spec:
         kind: ImageStreamTag
         namespace: openshift
         name: 'java:openjdk-11-el7'
-  source:
-    type: Git
-    git:
-      uri: 'https://github.com/jboss-openshift/openshift-quickstarts'
-  runPolicy: Serial
