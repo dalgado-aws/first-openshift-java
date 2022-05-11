@@ -19,7 +19,7 @@ objects:
       spec:
         containers:
           - name: java-container-1
-            image: image-registry.openshift-image-registry.svc:5000/${OPENSHIFT_NAMESPACE}/java-image-stream:latest
+            image: image-registry.openshift-image-registry.svc:5000/${OPENSHIFT_NAMESPACE}/my-java-image-stream:latest
             env:
               - name: JAVA_MAIN_CLASS
                 value: com.simple.Main

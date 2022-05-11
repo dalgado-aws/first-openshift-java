@@ -1,12 +1,12 @@
 kind: BuildConfig
 apiVersion: build.openshift.io/v1
 metadata:
-  name: build-java
+  name: build-my-java
 spec:
   output:
     to:
       kind: ImageStreamTag
-      name: 'java-image-stream:latest'
+      name: 'my-java-image-stream:latest'
   strategy:
     type: Source
     sourceStrategy:
